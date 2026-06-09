@@ -1,23 +1,4 @@
-require('dotenv').config();
-const express = require('express');
-const http = require('http');
-const WebSocket = require('ws');
-const cors = require('cors');
-const helmet = require('helmet');
-const compression = require('compression');
-const morgan = require('morgan');
-const rateLimit = require('express-rate-limit');
 
-const { connectDB } = require('./utils/db');
-const { setupWebSocketServer } = require('./handlers/wsHandler');
-const { sessionRouter } = require('./handlers/sessionHandler');
-const { roomRouter } = require('./handlers/roomHandler');
-const authRouter = require('./routes/auth');
-const runRouter = require('./routes/run');
-const fileRouter = require('./routes/files');
-
-const app = express();
-const server = http.createServer(app);
 
 // ── Connect to MongoDB ─────────────────────────────────────────────────────────
 connectDB();
